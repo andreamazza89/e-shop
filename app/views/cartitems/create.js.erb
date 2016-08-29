@@ -1,0 +1,7 @@
+var newItem = '<li>' + 
+                '<%= escape_javascript(@cartitem.product.name) %>' + 
+                '<%= escape_javascript(@cartitem.product.category) %>' + 
+                '<%= escape_javascript(@cartitem.product.price.to_s) %>' + 
+              '</li>'
+
+$('#cart').append(newItem);

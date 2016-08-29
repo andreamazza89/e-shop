@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
   gem 'byebug', platform: :mri
 end
 
