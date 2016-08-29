@@ -16,17 +16,3 @@
     <% end %>
   </table>
 </div>
-
-<!--  PLEASE TAKE ME TO THE LAYOUT   --!>
-<ul id="cart">
-  <% @cartitems.each do |item| %>
-    <li data-product-id="<%= item.product.id %>" >
-      <%= item.product.name %>
-      <%= item.product.category %>
-      <%= item.product.price %>
-      <%= button_to 'remove from cart', cartitem_path(item), remote: true, action: 'destroy', method: :delete %>
-    </li> 
-  <% end %>
-</ul>
-
-<%%>

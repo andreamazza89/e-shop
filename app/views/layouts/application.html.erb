@@ -9,6 +9,12 @@
   </head>
 
   <body>
+
     <%= yield %>
+
+    <ul id="cart">
+      <%= render @cartitems %>
+    </ul>
+
   </body>
 </html>
