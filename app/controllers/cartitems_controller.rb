@@ -4,7 +4,7 @@ class CartitemsController < ApplicationController
     @product          = Product.find(params[:id])
     @cartitem         = Cartitem.new
     @cartitem.product = @product
-    @cartitem.cart    = Cart.find(session[:cart_id])
+    @cartitem.cart    = @cart
 
     if @cartitem.save
       respond_to :js

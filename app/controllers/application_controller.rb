@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def connect_cart
     if session[:cart_id]
-      @cart_id = session[:cart_id] 
+      @cart = Cart.find(session[:cart_id])
     else
       @cart = Cart.create
       session[:cart_id] = @cart.id

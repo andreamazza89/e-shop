@@ -1,1 +1,3 @@
-$('#cart [data-product-id="<%= escape_javascript(@cartitem.product.id.to_s)%>"]').remove();
+$('#cartitems [data-product-id="<%= escape_javascript(@cartitem.product.id.to_s)%>"]').remove();
+
+$('#carttotal').html('<li>Total price: £<%= escape_javascript(@cart.total_price_in_pounds)%></li>');

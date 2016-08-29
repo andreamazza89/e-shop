@@ -12,9 +12,14 @@
 
     <%= yield %>
 
-    <ul id="cart">
-      <%= render @cartitems %>
-    </ul>
+    <div id="cart">
+      <ul id="cartitems">
+        <%= render @cartitems %>
+      </ul>
+      <ul id="carttotal">
+        <li>Total price: £<%= @cart.total_price_in_pounds  %></li>
+      </ul>
+    </div>
 
   </body>
 </html>
