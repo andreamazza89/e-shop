@@ -1,0 +1,6 @@
+<tr>
+  <td><%= product.name %><td>
+  <td><%= product.category %><td>
+  <td><%= product.price %><td>
+  <td><%= button_to 'add to cart', cartitems_path, params: {id: product.id}, remote: true %><td>
+</tr> 
