@@ -9,19 +9,12 @@ describe Cart, '#total_price_in_pounds' do
   end
 
   context 'when there are items in the cart' do
-    it 'returns the total price as an appropriately formatted string ' do
-      shoe  = Product.create(name: 'shoe', category: 'test category', price: 1010, stock_quantity: 4) 
-      shirt = Product.create(name: 'shirt', category: 'test category', price: 2030, stock_quantity: 4) 
+    it 'returns the total price as an appropriately formatted string ', focus: true do
+      shoe  = FactoryGirl.create(:product, name: 'shoe', price: 1010) 
+      shirt = FactoryGirl.create(:product, name: 'shirt', price: 2030) 
 
-      shoe_cart_item = Cartitem.new 
-      shoe_cart_item.product = shoe
-      shoe_cart_item.cart = cart
-      shoe_cart_item.save
-
-      shirt_cart_item = Cartitem.new 
-      shirt_cart_item.product = shirt
-      shirt_cart_item.cart = cart
-      shirt_cart_item.save
+      add_product_to_cart(shoe, cart)
+      add_product_to_cart(shirt, cart)
       
       expect(cart.total_price_in_pounds).to eq('30.40')
     end 
