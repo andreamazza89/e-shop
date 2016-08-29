@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
   resources :products,  only: [:index]
-  resources :cartitems, only: [:create]
+  resources :cartitems, only: [:create, :destroy]
 
 end

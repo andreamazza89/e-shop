@@ -13,4 +13,10 @@ class CartitemsController < ApplicationController
     end
   end
 
+  def destroy
+    @cartitem = Cartitem.find(params[:id])
+    @cartitem.destroy
+    respond_to :js
+  end
+
 end

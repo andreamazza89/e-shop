@@ -1,7 +1,8 @@
-var newItem = '<li>' + 
+var newItem = '<li data-product-id="<%= escape_javascript(@cartitem.product.id.to_s)%>">' + 
                 '<%= escape_javascript(@cartitem.product.name) %>' + 
                 '<%= escape_javascript(@cartitem.product.category) %>' + 
                 '<%= escape_javascript(@cartitem.product.price.to_s) %>' + 
-              '</li>'
+                '<%= escape_javascript(button_to 'remove from cart', cartitem_path(@cartitem.id), remote: true, action: 'destroy', method: :delete) %>' +
+              '</li>';
 
 $('#cart').append(newItem);
