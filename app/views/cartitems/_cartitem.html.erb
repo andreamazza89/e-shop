@@ -1,6 +1,8 @@
-<li data-product-id="<%= cartitem.product.id %>" >
-  <%= cartitem.product.name %>
-  <%= cartitem.product.category %>
-  <%= cartitem.product.price %>
-  <%= button_to 'remove from cart', cartitem_path(cartitem), remote: true, action: 'destroy', method: :delete %>
+<li class="list-group-item" data-product-id="<%= cartitem.product.id %>" >
+  <p>
+  Product: <%= cartitem.product.name %><br>
+  Category: <%= cartitem.product.category %><br>
+  Price: <%= cartitem.product.price %>
+  </p>
+  <%= button_to 'remove from cart', cartitem_path(cartitem), remote: true, action: 'destroy', method: :delete, class: 'btn btn-primary' %>
 </li> 

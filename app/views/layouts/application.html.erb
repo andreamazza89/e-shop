@@ -14,12 +14,12 @@
 
     <div id="cart">
 
-      <ul id="cartitems">
+      <ul class="list-group" id="cartitems">
         <%= render @cartitems %>
       </ul>
 
-      <ul id="carttotal">
-        <li>Total price: £<%= @cart.total_price_in_pounds(session[:discount]) %></li>
+      <ul class="list-group" id="carttotal">
+        <li class="list-group-item">Total price: £<%= @cart.total_price_in_pounds(session[:discount]) %></li>
       </ul>
 
       <%= form_tag '/vouchers', remote: true do %>
