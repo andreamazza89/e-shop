@@ -2,14 +2,19 @@ class CartitemsController < ApplicationController
 
   def create
     @product          = Product.find(params[:id])
-    @cartitem         = Cartitem.new
-    @cartitem.product = @product
-    @cartitem.cart    = @cart
 
-    if @cartitem.save
-      respond_to :js
+    if @product.stock_quantity <= 0
+      render plain: 'cannot add to cart: not availbale in stock'
     else
-      #deal with db failure here
+      @cartitem         = Cartitem.new
+      @cartitem.product = @product
+      @cartitem.cart    = @cart
+
+      if @cartitem.save
+        respond_to :js
+      else
+        #deal with db failure here
+      end
     end
   end
 
