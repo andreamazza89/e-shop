@@ -5,3 +5,18 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table > tbody > tr > th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.list-group-item {
+  display: inline-table;
+  width: 350px;
+  height: 150px;
+}
