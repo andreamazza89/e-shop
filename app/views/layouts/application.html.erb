@@ -13,13 +13,17 @@
     <%= yield %>
 
     <div id="cart">
+
       <ul id="cartitems">
         <%= render @cartitems %>
       </ul>
       <ul id="carttotal">
-        <li>Total price: £<%= @cart.total_price_in_pounds  %></li>
+        <li>Total price: £<%= @cart.total_price_in_pounds(session[:discounts])  %></li>
       </ul>
     </div>
-
+    
+    <%= form_tag '/vouchers', remote: true do %>
+      Voucher? enter code here<%= text_field_tag :code %>
+    <% end %>
   </body>
 </html>

@@ -1,4 +1,2 @@
-var newItem = '<%= escape_javascript(render @cartitem)%>'
-$('#cartitems').append(newItem);
-
 $('#carttotal').html('<li>Total price: £<%= escape_javascript(@cart.total_price_in_pounds(session[:discounts]))%></li>');
+$('#code').val('')

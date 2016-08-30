@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :voucher do
+    discount 1
+    description "MyString"
+  end
 
   factory :product do
     name           'shoe'
