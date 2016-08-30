@@ -15,8 +15,14 @@
   text-align: center;
 }
 
+.list-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .list-group-item {
-  display: inline-table;
-  width: 350px;
+  margin: 6px;
+  width: 340px;
   height: 150px;
 }
