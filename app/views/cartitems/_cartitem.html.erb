@@ -2,7 +2,7 @@
   <p>
   Product: <%= cartitem.product.name %><br>
   Category: <%= cartitem.product.category %><br>
-  Price: £<%= cartitem.product.price %>
+  Price: £<%= cartitem.pence_to_pounds(cartitem.product.price) %>
   </p>
   <%= button_to 'remove from cart', cartitem_path(cartitem), remote: true, action: 'destroy', method: :delete, class: 'btn btn-primary' %>
 </li> 
