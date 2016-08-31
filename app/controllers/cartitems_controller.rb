@@ -13,7 +13,7 @@ class CartitemsController < ApplicationController
       if @cartitem.save
         respond_to :js
       else
-        #deal with db failure here
+        render plain: 'cannot add to cart: something went wrong'
       end
     end
   end
