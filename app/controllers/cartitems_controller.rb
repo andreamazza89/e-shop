@@ -1,7 +1,7 @@
 class CartitemsController < ApplicationController
 
   def create
-    @product          = Product.find(params[:id])
+    @product = Product.find(params[:id])
 
     if @product.stock_quantity <= 0
       render plain: 'cannot add to cart: not availbale in stock'
