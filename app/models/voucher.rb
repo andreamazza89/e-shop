@@ -8,7 +8,7 @@ class Voucher
         return 1000 if cart_total_over_threshold?(5000, cart_id, discount)
       when 'FIFTEEN OFF'
         return 1500 if cart_total_over_threshold?(7500, cart_id, discount) &&
-                       cart_has_item_from_categories?(['Mens footwear', 'Womens footwear'], cart_id)
+                       cart_has_item_from_categories?(["Men's footwear", "Women's footwear"], cart_id)
     end
   end
 

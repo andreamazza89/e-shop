@@ -47,11 +47,11 @@ describe Voucher, ':validate_voucher' do
   context 'when the items in the cart are above £75 and category is footwear' do
 
     before(:each) do
-      shoe = FactoryGirl.create(:product, price: 7501, category: 'Mens footwear') 
+      shoe = FactoryGirl.create(:product, price: 7501, category: "Men's footwear") 
       add_product_to_cart(shoe, cart)
     end
 
-    it 'returns nil for FIFTEEN OFF' do
+    it 'returns 1500 for FIFTEEN OFF' do
       expect(Voucher.validate_voucher('FIFTEEN OFF', cart.id, 0)).to eq(1500)
     end
 
