@@ -1,4 +1,5 @@
 describe CartitemsController do
+
   describe '#create' do
 
     context 'when item is not in stock' do
@@ -14,13 +15,21 @@ describe CartitemsController do
     end
 
 
-    context 'when item is in stock' do
+    context 'when item is in stock and not already in cart' do
 
       it 'creates a cartitem' do
         test_product = FactoryGirl.create(:product)
 
         expect { create_cartitem_with_product(test_product) }
           .to change { Cartitem.count }.by 1
+      end 
+
+      it 'sets the cartitem quantity to 1' do
+        test_product = FactoryGirl.create(:product)
+
+        create_cartitem_with_product(test_product)
+         
+        expect(assigns(:cartitem).quantity).to eq(1)
       end 
 
       it 'creates the relation between cartitem and product' do
@@ -46,6 +55,27 @@ describe CartitemsController do
         create_cartitem_with_product(test_product)
     
         expect(response).to render_template('create')
+      end
+    end
+    
+
+    context 'when item is already in cart' do
+
+      it 'does not create a new cartitem' do
+        test_product = FactoryGirl.create(:product)
+
+        create_cartitem_with_product(test_product)
+        expect { create_cartitem_with_product(test_product) }
+          .to_not change { Cartitem.count }
+      end
+
+      it 'updates exisiting item quantity' do
+        test_product = FactoryGirl.create(:product)
+
+        create_cartitem_with_product(test_product)
+        create_cartitem_with_product(test_product)
+
+        expect(assigns(:cartitem).quantity).to eq(2)
       end
     end
   end
