@@ -15,6 +15,7 @@ gem "twitter-bootstrap-rails", '3.2.2'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'selenium-webdriver'
