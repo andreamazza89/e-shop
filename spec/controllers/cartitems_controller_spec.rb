@@ -77,8 +77,8 @@ describe CartitemsController, '#create' do
     end
   end
 
-  def create_cartitem_with_product(product)
-    post :create, xhr: true, params: { id: product.id }
-  end
+end
 
+def create_cartitem_with_product(product)
+  post :create, xhr: true, params: { id: product.id }
 end
