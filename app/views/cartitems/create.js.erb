@@ -1,4 +1,23 @@
-var newItem = '<%= escape_javascript(render @cartitem)%>'
-$('#cartitems').append(newItem);
+//var newItem = '<%= escape_javascript(render @cartitem)%>'
+//$('#cartitems').append(newItem);
+//
+//$('#carttotal').html('<%= j render(partial: 'shared/cart_total') %>');
 
-$('#carttotal').html('<%= j render(partial: 'shared/cart_total') %>');
+function renderCart() {
+  updateCartitems();
+  updateCarttotal();
+}
+
+function updateCartitems() {
+  $('#cartitems').html(renderCartContents());
+}
+
+function updateCarttotal() {
+  $('#carttotal').html('<%= j render(partial: 'shared/cart_total') %>');
+}
+
+function renderCartContents() {
+  return '<%= escape_javascript(render @cart.cartitems)%>' 
+}
+
+renderCart();
