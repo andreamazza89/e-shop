@@ -22,6 +22,10 @@ class CartitemsController < ApplicationController
     @cartitem = @cart.cartitems.where(product_id: @product.id).first_or_create 
     @cartitem.quantity += 1
     @cartitem.save
+
+    product = @cartitem.product
+    product.stock_quantity -= 1
+    product.save
   end
 
 end
